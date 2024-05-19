@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -m64 -Wall
+CFLAGS = -m64 -Wall -no-pie
 DFLAGS = -g -O0 -DDEBUG
 LIBS = -lallegro -lallegro_image -lallegro_dialog
 

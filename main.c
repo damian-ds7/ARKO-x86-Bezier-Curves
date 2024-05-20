@@ -108,7 +108,7 @@ void draw_bezier (ALLEGRO_BITMAP *image, ALLEGRO_DISPLAY *display, Points *point
 	data = (unsigned char *) region->data;
 
 	if (points->counter > 0) {
-		bezier(data, points->counter, points->x, points->y, region->pitch);
+		bezier(data, points->counter, points->x, points->y, region->pitch, HEIGHT);
 	}
 
 	al_unlock_bitmap(image);

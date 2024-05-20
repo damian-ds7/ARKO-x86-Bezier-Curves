@@ -17,6 +17,9 @@ bezier:
 	push r14
 	push r15
 
+	sub rsp, 4
+	mov [rbp - 4], r9d
+
 	mov r9d, 0xFF000000
 	mov rbx, rdx
 	movsxd r8, r8d
@@ -353,13 +356,43 @@ draw_points:
 	add r12, r10
 
 	mov [r12], r9d
+
+	mov r14, r8
+	neg r14
+	shr r14, 2
+
+	movsxd r15, dword [rbp - 4]
+
+draw_right_pixel:
+	xor r10, r10
+	mov r10d, [rbx]
+
+	cmp r10d, r14d
+	je draw_left_pixel
 	mov [r12 + 4], r9d
+
+draw_left_pixel:
+	test r10, r10
+	jz draw_top_pixel
 	mov [r12 - 4], r9d
+
+draw_top_pixel:
+	xor r11, r11
+	mov r11d, [rcx]
+
+	test r11, r11
+	jz draw_bottom_pixel
 	mov [r12 + r8], r9d
+
+draw_bottom_pixel:
 	mov r13, r8
 	neg r13
+
+	cmp r11, r15
+	je next
 	mov [r12 + r13], r9d
 
+next:
 	lea rbx, [rbx + 4]
 	lea rcx, [rcx + 4]
 

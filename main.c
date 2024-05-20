@@ -64,7 +64,6 @@ int main(int argc, char* argv[]) {
 		switch (ev.type) {
 			case ALLEGRO_EVENT_DISPLAY_CLOSE:
 				al_save_bitmap("bezier.bmp", image);
-				// al_destroy_bitmap(image);
 				exit(0);
 				break;
 			case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
@@ -107,7 +106,6 @@ void draw_bezier (ALLEGRO_BITMAP *image, ALLEGRO_DISPLAY *display, Points *point
 	}
 
 	data = (unsigned char *) region->data;
-	// data -= (-region->pitch * (HEIGHT - 1));
 
 	if (points->counter > 0) {
 		bezier(data, points->counter, points->x, points->y, region->pitch);

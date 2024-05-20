@@ -1,7 +1,7 @@
 # Interactive Bezier Curves (4th degree) Intel x86_64 Assembly
 Program is built using make, to build type ```make all``` in terminal
 After running click anywhere on the screen to generate a point, after 5 points, bitmap will be reset back to 1.
-After closing the bitmap is saved to ```reult.bmp```
+After closing the bitmap is saved to ```bezier.bmp```
 
 # Used general purpose registers
 - RDI: pointer to start of pixel data (function argument)
